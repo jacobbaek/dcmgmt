@@ -9,3 +9,8 @@ class VCinfo(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     vmname = models.CharField(max_length=100)
+
+class VMInfo(models.Model):
+    vmname = models.CharField(max_length=100)
+    cpuinfo = models.IntegerField()
+    meminfo = models.IntegerField()

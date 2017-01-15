@@ -16,12 +16,14 @@ def autoscaling(request):
         form = VCinfoForm()
     return render(request, "autoscaling.html", {'form': form})
 
-def result(request, ):
+def result(request):
     forms = VCinfo.objects.all()
     return render(request, "result.html", {'forms': forms})
 
 def decrease(request):
+    VCinfo.objects.all().delete()
     return render(request, "after_as.html", {'msg': 'decrease succeed'})
 
 def increase(request):
+    VCinfo.objects.all().delete()
     return render(request, "after_as.html", {'msg': 'increase succeed'})
