@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from autoscaling import as_views
-from dashboard import db_views
+from autoscaling import views as asviews
+from dashboard import views as dbviews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', as_views.autoscaling),
-    url(r'^autuscaling', as_views.run_as),
-    url(r'^mgmt$', db_views.dashboard),
+    url(r'^$', dbviews.dashboard),
+    url(r'^autoscaling', asviews.autoscaling),
+    url(r'^result', asviews.result),
 ]

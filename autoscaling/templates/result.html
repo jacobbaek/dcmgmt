@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+</p>
+<table>
+    <tr>
+        <td>vmname</td>
+        <td>cpu usage</td>
+        <td>mem usage</td>
+    </tr>
+    <tr>
+        <td>{{ vmname }}</td>
+        <td>value2</td>
+        <td>value3</td>
+    </tr>
+</table>
+<br>
+<form action="/increase">
+    <input type="submit" value="increase" class="button">
+</form>
+<form action="/decrease">
+    <input type="submit" value="decrease" class="button">
+</form>
+{% endblock %}

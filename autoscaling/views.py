@@ -1,31 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
-from .models import VcenterInfo
+from vcaform import VConnInput, VConnectInfo
 
 # Create your views here.
 def autoscaling(request):
-    if VcenterInfo:
-        return render(request, "autoscaling.html", {'message':"welcome"})
-    VcenterInfo()
-    return render(request, "autoscaling.html", {'message': "please retry"})
+    if request.method == 'POST':
+        return redirect("/result")
+    form = VConnInput(request.POST)
+    return render(request, "autoscaling.html", {'form': form})
 
-def run_as(request):
-    if 'ipaddr' in request.POST:
-        ipaddr = request.POST['ipaddr']
-    else:
-        return render(request, "autoscaling.html")
-
-    if 'user' in request.POST:
-        user = request.POST['user']
-
-    print request.POST['user']
-
-    if 'passwd' in request.POST:
-        password = request.POST['passwd']
-    else:
-        return render(request, "autoscaling.html")
-
-    return render(request, "testresult.html", {"ipaddr":ipaddr, "user":user, "passwd":password})
+def result(request):
+    return render(request, "result.html", {'vmname':VConnectInfo.vmname})
