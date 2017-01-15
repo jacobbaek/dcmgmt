@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^$', dbviews.dashboard),
     url(r'^autoscaling', asviews.autoscaling),
     url(r'^result', asviews.result),
+    url(r'^increase', asviews.increase),
+    url(r'^decrease', asviews.decrease),
 ]

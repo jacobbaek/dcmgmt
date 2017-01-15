@@ -11,17 +11,10 @@
     <tr>
         <td>{{ form.vmname }}</td>
         <td>{{ form.hostname}}</td>
-        <td>value</td>
+        <td>value3</td>
     </tr>
     {% endfor %}
 </table>
-<br>
-    {{ msg }}
-
-<form action="/increase">
-    <input type="submit" value="increase" class="button">
-</form>
-<form action="/decrease">
-    <input type="submit" value="decrease" class="button">
-</form>
+<p/>
+<div><h3>result : {{ msg }}</h3></div>
 {% endblock %}

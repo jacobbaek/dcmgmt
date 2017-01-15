@@ -1,7 +1,7 @@
 from django import forms
-from .models import VConnectInfo
+from .models import VCinfo
 
-class VConnInput(forms.ModelForm):
+class VCinfoForm(forms.ModelForm):
     class Meta:
-        model = VConnectInfo
-        fields = ("hostname", "username", "password", "vmname",)
+        model = VCinfo
+        fields = ["hostname", "username", "password", "vmname"]
